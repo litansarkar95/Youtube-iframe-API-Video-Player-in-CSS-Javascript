@@ -12,8 +12,6 @@ function onYouTubeIframeAPIReady() {
 // Load YouTube IFrame API
 function createPlayer(videoId) {
   player = new YT.Player("player", {
-    // height: "337.5",
-    // width: "600",
     videoId: videoId, // Example video, replace with your desired video ID
     events: {
       onReady: onPlayerReady,

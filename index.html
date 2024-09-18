@@ -12,6 +12,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </head>
+<script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable specific key combinations like Ctrl+U, Ctrl+Shift+I, F12
+    document.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U') ||
+            e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i') ||
+            e.key === 'F12') {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
 
 <body>
     <main class="main-wrap">
@@ -22,26 +38,27 @@
             <div class="video-wrap">
 
                 <!-- The YouTube iframe will be dynamically loaded here -->
-                <div id="player" class="player"></div>
+                <div id="player" class="player" style="pointer-events: none;"></div>
                 <div class="player_button">
                     <button id="play-pause" class="control-button"> <i class="fa-solid fa-play"></i></button>
 
                     <button id="fullscreen" class="control-button fullscreen"> <i
                             class="fa-solid fa-expand"></i></button>
+                    <button id="backwardBtn">
+                        <i class="fas fa-backward"></i>
+                    </button>
                     <!-- Stop Button -->
-                    <button id="stop" class="control-button"><i class="fa-solid fa-stop"></i></button>
-
+                    <button id="stop" class="control-button stop"><i class="fa-solid fa-stop"></i></button>
+                    <button id="forwardBtn">
+                        <i class="fas fa-forward"></i>
+                    </button>
                     <!-- Volume Control -->
                     <input id="volume" type="range" class="volume-slider" min="0" max="100" step="1" value="100">
 
                     <!-- Time Display -->
                     <span id="time-display" class="time-display">00:00 / 00:00</span>
-                    <button id="backwardBtn">
-                        <i class="fas fa-backward"></i>
-                    </button>
-                    <button id="forwardBtn">
-                        <i class="fas fa-forward"></i>
-                    </button>
+
+
                     <!-- Progress Bar -->
                     <div class="progress-container">
 
@@ -60,6 +77,8 @@
     </main>
     <script src="https://www.youtube.com/iframe_api/"></script>
     <script src="script.js"></script>
+
+
 </body>
 
 </html>

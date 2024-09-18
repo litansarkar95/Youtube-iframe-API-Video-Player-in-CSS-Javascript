@@ -69,6 +69,8 @@ body {
 
 .progress-bar {
     width: 100%;
+    color: #ec0747 !important;
+    padding: 100px !important;
 }
 
 
@@ -77,4 +79,88 @@ body {
     margin-left: 1rem;
     margin-top: -3rem;
 
+}
+
+/* media*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    body {
+        background-color: crimson;
+    }
+
+    .video-wrap {
+        max-width: 310px;
+        height: 100%;
+        background: #3224AE;
+        margin: 3rem auto;
+    }
+
+    .player {
+        max-width: 310px;
+    }
+
+    .player_button {
+        max-width: 310px;
+        height: auto;
+        background: #3224AE;
+    }
+
+    .video-wrap {
+        max-width: 310px;
+    }
+
+
+
+    .progress-container {
+        width: 90%;
+        margin: 0 auto;
+
+
+    }
+
+    .progress-bar {
+        width: 100%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    body {
+        background-color: greenyellow;
+    }
+
+    .video-wrap {
+        max-width: 481px;
+        height: 100%;
+        background: #3224AE;
+        margin: 3rem auto;
+    }
+
+    .player {
+        max-width: 481px;
+    }
+
+    .player_button {
+        max-width: 481px;
+        height: auto;
+        background: #3224AE;
+    }
+
+    .video-wrap {
+        max-width: 481px;
+    }
+
+
+
+    .progress-container {
+        width: 90%;
+        margin: 0 auto;
+
+
+    }
+
+    .progress-bar {
+        width: 100%;
+    }
 }
