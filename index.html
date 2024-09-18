@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom YouTube Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <main class="main-wrap">
+        <section class="video-section">
+
+            <input type="hidden" id="videoId" data-id="DjwwzS0aMnM" placeholder="Enter YouTube Video ID">
+
+            <div class="video-wrap">
+
+                <!-- The YouTube iframe will be dynamically loaded here -->
+                <div id="player" class="player"></div>
+                <div class="player_button">
+                    <button id="play-pause" class="control-button"> <i class="fa-solid fa-play"></i></button>
+
+                    <button id="fullscreen" class="control-button fullscreen"> <i
+                            class="fa-solid fa-expand"></i></button>
+                    <!-- Stop Button -->
+                    <button id="stop" class="control-button"><i class="fa-solid fa-stop"></i></button>
+
+                    <!-- Volume Control -->
+                    <input id="volume" type="range" class="volume-slider" min="0" max="100" step="1" value="100">
+
+                    <!-- Time Display -->
+                    <span id="time-display" class="time-display">00:00 / 00:00</span>
+                    <button id="backwardBtn">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button id="forwardBtn">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+
+
+                        <input id="progress-bar" type="range" class="progress-bar" min="0" max="100" value="0">
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            </div>
+        </section>
+    </main>
+    <script src="https://www.youtube.com/iframe_api/"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
