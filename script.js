@@ -27,6 +27,10 @@ function onPlayerReady(event) {
   const volumeSlider = document.getElementById("volume");
   const progressBar = document.getElementById("progress-bar");
   const fullscreenBtn = document.getElementById("fullscreen");
+  const volumeIcon = document.getElementById("volume-icon");
+  const volumeBtn = document.getElementById("volume-btn");
+
+  let isMuted = false;
 
   // Play/Pause functionality
   playPauseBtn.addEventListener("click", () => {
@@ -47,11 +51,38 @@ function onPlayerReady(event) {
     isPlaying = false;
   });
 
-  // Volume control
-  volumeSlider.addEventListener("input", (e) => {
-    player.setVolume(e.target.value);
+  volumeSlider.addEventListener("input", function (e) {
+    const value = ((this.value - this.min) / (this.max - this.min)) * 100;
+
+    this.style.background = `linear-gradient(to right, #2196f3 ${value}%, #ddd ${value}%)`;
+    if (value === 0) {
+      volumeIcon.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Mute icon
+      isMuted = true;
+    } else {
+      volumeIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>'; // Volume icon
+      isMuted = false;
+    }
+
+    player.setVolume(e.target.value); // Corrected here
   });
 
+  // Toggle mute/unmute
+  volumeBtn.addEventListener("click", function (e) {
+    isMuted = !isMuted;
+    //  const value = ((this.value - this.min) / (this.max - this.min)) * 100;
+
+    if (isMuted) {
+      player.setVolume(e.target.value);
+      volumeSlider.style.background = `linear-gradient(to right, #2196f3 ${volumeSlider.value}%, #ddd ${volumeSlider.value}%)`;
+      volumeIcon.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; // Mute icon
+    } else {
+      player.setVolume(volumeSlider.value); // Corrected here
+      volumeSlider.style.background = `linear-gradient(to right, #2196f3 ${volumeSlider.value}%, #ddd ${volumeSlider.value}%)`;
+      volumeIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>'; // Unmute icon
+
+      // Restore the color
+    }
+  });
   // Update progress bar and time display
   setInterval(() => {
     if (player && player.getDuration) {

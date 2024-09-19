@@ -52,20 +52,38 @@
                     <button id="forwardBtn">
                         <i class="fas fa-forward"></i>
                     </button>
-                    <!-- Volume Control -->
-                    <input id="volume" type="range" class="volume-slider" min="0" max="100" step="1" value="100">
 
-                    <!-- Time Display -->
-                    <span id="time-display" class="time-display">00:00 / 00:00</span>
+                    <div class="volume-videoplay">
+                        <!-- Volume Control -->
+                        <div class="volume-control">
+                            <button class="volume-button" id="volume-btn">
+                                <span id="volume-icon"><i class="fa-solid fa-volume-high"></i></span>
+                            </button>
+                            <input type="range" id="volume" class="volume-slider" min="0" max="100" value="50">
+                        </div>
+
+                        <!-- Progress Bar -->
+
+                        <div class="video-control ">
+                            <button class="video-button" id="video-btn">
+                                <!-- Time Display -->
+                                <span id="time-display" class="time-display">00:00 / 00:00</span>
+                            </button>
+                            <input id="progress-bar" type="range" class="progress-bar " min="0" max="100" value="0">
+                        </div>
+                    </div>
 
 
-                    <!-- Progress Bar -->
-                    <div class="progress-container">
+
+
+
+
+                    <!-- <div class="progress-container">
 
 
                         <input id="progress-bar" type="range" class="progress-bar" min="0" max="100" value="0">
 
-                    </div>
+                    </div> -->
 
 
 

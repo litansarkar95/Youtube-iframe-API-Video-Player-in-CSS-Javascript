@@ -67,19 +67,92 @@ body {
 
 }
 
-.progress-bar {
-    width: 100%;
-    color: #ec0747 !important;
-    padding: 100px !important;
+
+.volume-control {
+    display: flex;
+    align-items: center;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    /* Removes default styling */
+    width: 150px;
+    height: 8px;
+    background: #ddd;
+    /* Default track background */
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-runnable-track {
+    height: 8px;
+    background: linear-gradient(90deg, #2196f3 50%, #ddd 50%);
+    /* Gradient based on value */
+    border-radius: 5px;
+}
+
+.volume-slider::-moz-range-progress {
+    background: #2196f3;
+}
+
+.volume-slider::-moz-range-track {
+    background: #ddd;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2196f3;
+    /* Thumb color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2196f3;
+    cursor: pointer;
+}
+
+.volume-slider:focus::-webkit-slider-thumb {
+    background: #1976d2;
+    /* Darken thumb on focus */
+}
+
+.volume-slider:hover {
+    background: #ccc;
+}
+
+.volume-slider:hover::-webkit-slider-thumb {
+    background: #1976d2;
+}
+
+/* Change track color when adjusting volume */
+.volume-slider:active::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #1976d2 50%, #ccc 50%);
+}
+
+.video-control {
+    display: flex;
 }
 
 
 
-.time-display {
-    margin-left: 1rem;
-    margin-top: -3rem;
 
+.volume-videoplay {
+    display: flex;
+    gap: 1rem;
 }
+
+
 
 /* media*/
 
@@ -119,9 +192,11 @@ body {
 
     }
 
-    .progress-bar {
-        width: 100%;
+    .volume-videoplay {
+        display: inline-block;
+
     }
+
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -160,7 +235,5 @@ body {
 
     }
 
-    .progress-bar {
-        width: 100%;
-    }
+
 }
